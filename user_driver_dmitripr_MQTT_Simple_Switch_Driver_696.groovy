@@ -40,7 +40,9 @@ metadata {
         	namespace: "dmitripr",
         	author: "Dmitri Prigojev, et al",
         	description: "Driver to subscribe to an MQTT topic and, if needed, provide a two-way communication"
-        ) {
+        ) 
+		
+		{
 		capability "Switch"
         capability "Initialize" //make sure we reconnect on hub restart
 
@@ -53,6 +55,7 @@ metadata {
 				required: true,
 				displayDuringSetup: true
 			)
+			
 			input(
 		        name: "brokerPort", 
 		        type: "string",
@@ -143,7 +146,6 @@ metadata {
 				displayDuringSetup: true
 			)
 
-            
             input(
                 name: "debugLogging", 
                 type: "bool", 
