@@ -44,12 +44,12 @@ metadata {
 		
 		{
 		capability "Switch"
-        capability "Initialize" //make sure we reconnect on hub restart
+        	capability "Initialize" //make sure we reconnect on hub restart
 
 		preferences {
 			input(
-		        name: "brokerIp", 
-		        type: "string",
+		        	name: "brokerIp", 
+		        	type: "string",
 				title: "MQTT Broker IP Address",
 				description: "e.g. 192.168.1.200",
 				required: true,
@@ -57,105 +57,106 @@ metadata {
 			)
 			
 			input(
-		        name: "brokerPort", 
-		        type: "string",
+		        	name: "brokerPort", 
+		        	type: "string",
 				title: "MQTT Broker Port",
 				description: "e.g. 1883",
 				required: true,
 				displayDuringSetup: true,
-                default: "1883"
+                		default: "1883"
 			)
-
-		    input(
-                name: "subscription_topic", 
-		        type: "string",
+			
+	     		input(
+                		name: "subscription_topic", 
+		        	type: "string",
 				title: "Topic",
 				description: "Topic that will be subscribed to/monitored for this device e.g. cmnd/tasmota/device___/power",
 				required: true,
 				displayDuringSetup: true
-            )
+            		)
             
-            input(
-                name: "switch_on_value", 
-		        type: "string",
+            		input(
+                		name: "switch_on_value", 
+		        	type: "string",
 				title: "MQTT Value for Switch On",
 				description: "Value that will turn the virtual switch of this device ON",
 				required: true,
 				displayDuringSetup: true
-            )
+            		)
             
-            input(
-                name: "switch_off_value", 
-		        type: "string",
+            		input(
+                		name: "switch_off_value", 
+		       		type: "string",
 				title: "MQTT Value for Switch Off",
 				description: "Value that will turn the virtual switch of this device OFF",
 				required: true,
 				displayDuringSetup: true
-            )
+            		)
 
-            input(
-                name: "allowTwoWay", 
-                type: "bool", 
-                title: "Enable publishing back",
-                description: "Allows the virtual device to publish back to the MQTT topic based on action taken (On or Off)",
-                required: false, 
-                default: false
-            )
+            		input(
+                		name: "allowTwoWay", 
+                		type: "bool", 
+                		title: "Enable publishing back",
+                		description: "Allows the virtual device to publish back to the MQTT topic based on action taken (On or Off)",
+                		required: false, 
+                		default: false
+			)
             
-            input(
-                name: "publish_topic", 
-		        type: "string",
+            		input(
+                		name: "publish_topic", 
+		        	type: "string",
 				title: "Topic to publish to",
 				description: "Topic that will be published to for this device, if different from subscribe e.g. cmnd/tasmota/device___/power",
 				required: false,
 				displayDuringSetup: true
-            )
+            		)
             
-            input(
-                name: "switch_on_publish_value", 
-		        type: "string",
+            		input(
+                		name: "switch_on_publish_value", 
+		        	type: "string",
 				title: "MQTT Value to publish for Switch On",
 				description: "Value that will be published when this virtual device is switched ON",
 				required: false,
 				displayDuringSetup: true
-            )
+            		)		
             
-            input(
-                name: "switch_off_publish_value", 
-		        type: "string",
+            		input(
+                		name: "switch_off_publish_value", 
+		        	type: "string",
 				title: "MQTT Value to publish for Switch Off",
 				description: "Value that will be published when this virtual device is switched OFF",
 				required: false,
 				displayDuringSetup: true
-            )
+            		)
             
-            input(
-		        name: "brokerUser", 
-		        type: "string",
+            		input(
+		        	name: "brokerUser", 
+		        	type: "string",
 				title: "MQTT Broker Username",
 				description: "e.g. mqtt_user",
 				required: false,
 				displayDuringSetup: true
-			)
-		    input(
-		        name: "brokerPassword", 
-		        type: "password",
+	    		)
+			
+			input(
+		        	name: "brokerPassword", 
+		        	type: "password",
 				title: "MQTT Broker Password",
 				description: "e.g. ^L85er1Z7g&%2En!",
 				required: false,
 				displayDuringSetup: true
 			)
 
-            input(
-                name: "debugLogging", 
-                type: "bool", 
-                title: "Enable debug logging", 
-                required: false, 
-                default: false
-            )
+            		input(
+                		name: "debugLogging", 
+                		type: "bool", 
+                		title: "Enable debug logging", 
+               			required: false, 
+                		default: false
+            		)
 		}
 
-        // Provided for broker setup and troubleshooting
+        	// Provided for broker setup and troubleshooting
 		command "publish", [[name:"topic*",type:"STRING", title:"test",description:"Topic"],[name:"message",type:"STRING", description:"Message"]]
 		command "connect"
 		command "disconnect"
